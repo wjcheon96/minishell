@@ -6,7 +6,7 @@
 /*   By: wocheon <wocheon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:20:22 by wocheon           #+#    #+#             */
-/*   Updated: 2023/02/02 19:05:36 by wocheon          ###   ########.fr       */
+/*   Updated: 2023/02/02 22:24:13 by wocheon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	remove_cmd(t_line *line, t_cmd **cmd)
 	temp->next = (*cmd)->next;
 	free((*cmd)->str);
 	free(*cmd);
-	(*cmd) = temp->next;
+	(*cmd) = temp;
 }
 
 t_cmd	*seperate_cmd(t_cmd **cmd)

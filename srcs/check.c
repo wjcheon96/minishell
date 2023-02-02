@@ -6,7 +6,7 @@
 /*   By: wocheon <wocheon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:23:00 by wocheon           #+#    #+#             */
-/*   Updated: 2023/02/02 19:12:15 by wocheon          ###   ########.fr       */
+/*   Updated: 2023/02/02 22:27:26 by wocheon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	check_dollar(t_line *line)
 		if (cmd->quote != 1)
 		{
 			cmd->dollar = is_dollar(cmd->str);
-			if (cmd->dollar && tmp && tmp->type)
+			if (cmd->dollar)
 			{
 				cmd->str = change_dollar(cmd->str, cmd->dollar);
 				if (!cmd->str[0] && cmd->quote == 0 && tmp && tmp->type != 1)
@@ -60,7 +60,8 @@ void	check_dollar(t_line *line)
 			}
 		}
 		tmp = cmd;
-		cmd = cmd->next;
+		if (cmd)
+			cmd = cmd->next;
 	}
 }
 

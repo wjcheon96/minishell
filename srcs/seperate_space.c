@@ -6,7 +6,7 @@
 /*   By: wocheon <wocheon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 05:22:40 by wocheon           #+#    #+#             */
-/*   Updated: 2023/02/02 16:58:17 by wocheon          ###   ########.fr       */
+/*   Updated: 2023/02/02 22:28:50 by wocheon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ void	split_cmd(t_cmd **cmd, char *str)
 			tmp = seperate_cmd(cmd);
 			tmp->str = ft_strdup(str + i);
 			free(str);
-			(*cmd)->space = 2;
 			if ((*cmd)->space == 1)
 				(*cmd)->space = 3;
+			else
+				(*cmd)->space = 2;
 			return ;
 		}
 		i++;
@@ -77,8 +78,6 @@ void	seperate_space(t_line *line)
 			{
 				str = cmd->str;
 				before_split(line, &cmd, str);
-				if (!cmd)
-					break ;
 			}
 		}
 		cmd = cmd->next;
